@@ -1,23 +1,27 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="nuwaBrowser">
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
+  <title>NuWa Agile Browser</title>
+  <link rel="shortcut icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
   <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+
+  <header class="page-header">
+    <h1>Agile Browser <small>for NuWa programmers </small></h1>
+  </header>
 
   <div ng-view></div>
 
-  <div>Angular seed app: v<span app-version></span></div>
+  <div class="alert alert-info" style="text-align: center;">
+    NuWa Agile Browser <span app-version></span>, &copy; Copyright 2013, Daya Bay Collaboration
+  </div>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
-  -->
+  <!-- javascripts -->
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
   <script src="lib/angular/angular.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
