@@ -1,0 +1,25 @@
+<div class="row-fluid">
+  <div class="span8">
+    <ul class="nav nav-tabs">
+      <li><a href="#/modules">Modules</a></li>
+      <li><a href="#/packages">Packages</a></li>
+      <li class="active"><a href="#/configurables">Configurables</a></li>
+    </ul>
+  </div>
+  <div class="span4">
+  </div>
+</div>
+
+<table class="table table-striped table-bordered table-hover">
+  <caption><h3>{{configurableName}}</h3></caption>
+  <thead>
+    <th>Property</th>
+    <th>Default Value</th>
+    <th>Description</th>
+  </thead>
+  <tr ng-repeat="item in properties | orderBy:orderBy">
+    <td>{{item.name}}</td>
+    <td>{{item.value}}</td>
+    <td>{{item.doc}}</td>
+  </tr>
+</table>

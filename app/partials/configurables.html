@@ -1,14 +1,14 @@
 <div class="row-fluid">
   <div class="span8">
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#/modules">Modules</a></li>
+      <li><a href="#/modules">Modules</a></li>
       <li><a href="#/packages">Packages</a></li>
-      <li><a href="#/configurables">Configurables</a></li>
+      <li class="active"><a href="#/configurables">Configurables</a></li>
     </ul>
   </div>
   <div class="span4">
     <form class="form-search" ng-submit ="redirect()">
-      <span class="label label-info">Modules</span>
+      <span class="label label-info">Configurables</span>
       <span class="badge badge-important">{{filtered.length}}</span>
       <div class="input-append">
         <input type="text" placeholder="Search ..." ng-model="query" class="input-medium search-query">
@@ -18,20 +18,15 @@
   </div>
 </div>
 
-
-
 <table class="table table-striped table-bordered table-hover">
   <thead>
     <th>Name</th>
-    <th>Location</th>
-    <th>View</th>
+    <th>Package</th>
+    <th>Properties</th>
   </thead>
-  <tr ng-repeat="module in filtered = (modules | orderBy:orderBy | filter:query)">
-    <td>{{module.name}}</td>
-    <td><a href="{{tracUrl(module)}}">{{shortUrl(module)}}</a></td>
-    <td><div class="btn-group">
-      <a href="{{tracUrl(module)}}", class="btn btn-primary">trac</a>
-      <a href="{{svnUrl(module)}}", class="btn">svn</a>
-    </div></td>
+  <tr ng-repeat="item in filtered = (configurables | orderBy:orderBy | filter:query)">
+    <td>{{item.name}}</td>
+    <td>{{item.pkg}}</a></td>
+    <td><a href="#/configurables/{{item.name}}">properties</a></td>
   </tr>
 </table>

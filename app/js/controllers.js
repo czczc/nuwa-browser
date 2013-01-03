@@ -88,4 +88,38 @@ function PackageListCtrl($scope, $http) {
 }
 PackageListCtrl.$inject = ['$scope', '$http'];
 
+// Configurable Controller
+function ConfigurableListCtrl($scope, $http) {
+  $http.get('nuwa/configurables.json').
+    success(function(data) {
+      $scope.configurables = data;
+    }).
+    error(function () {
+      alert("ConfigurableListCtrl: cannot find json file");
+    });
 
+  $scope.orderBy = 'name';
+
+  $scope.redirect = function () {
+    var url = '#/configurables/'+$scope.filtered[0].name;
+    // alert(url);
+    window.location = url;
+  }
+}
+ConfigurableListCtrl.$inject = ['$scope', '$http'];
+
+
+// Configurable Controller
+function ConfigurableDetailCtrl($scope, $http, $routeParams) {
+  $scope.configurableName = $routeParams.configurableName
+  $http.get('nuwa/configurables/'+$scope.configurableName+'.json').
+    success(function(data) {
+      $scope.properties = data;
+    }).
+    error(function () {
+      alert("ConfigurableDetailCtrl: cannot find json file");
+    });
+
+  $scope.orderBy = 'name';
+}
+ConfigurableDetailCtrl.$inject = ['$scope', '$http', '$routeParams'];

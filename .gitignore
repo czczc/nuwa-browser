@@ -9,4 +9,4 @@ build.xml
 
 *.DS_Store
 *.pyc
-
+*.json

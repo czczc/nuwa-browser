@@ -7,11 +7,19 @@ angular.module('nuwaBrowser', ['nuwaBrowser.filters', 'nuwaBrowser.services', 'n
     $routeProvider.
       when('/modules', {
         templateUrl: 'partials/modules.html',
-        controller: ModuleListCtrl,
+        controller: ModuleListCtrl
       }).
       when('/packages', {
         templateUrl: 'partials/packages.html',
-        controller: PackageListCtrl,
+        controller: PackageListCtrl
+      }).
+      when('/configurables', {
+        templateUrl: 'partials/configurables.html',
+        controller: ConfigurableListCtrl
+      }).
+      when('/configurables/:configurableName', {
+        templateUrl: 'partials/configurable.html',
+        controller: ConfigurableDetailCtrl
       });
     $routeProvider.otherwise({redirectTo: '/modules'});
   }]);
